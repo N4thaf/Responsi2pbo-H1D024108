@@ -1,0 +1,53 @@
+class ProgrammerMagang implements KaryawanKontrak, AksesSistem {
+    private String nama;
+    private double gajiPerJam;
+    private String pinRahasia;
+    private boolean sedangLogin;
+
+    public ProgrammerMagang(String nama, double gajiPerJam, String pinRahasia) {
+        this.nama = nama;
+        this.gajiPerJam = gajiPerJam;
+        this.pinRahasia = pinRahasia;
+        this.sedangLogin = false;
+    }
+
+    @Override
+    public double hitungGaji(int jamKerja) {
+        double totalGaji = jamKerja * gajiPerJam;
+        System.out.printf("Gaji %s (%d jam) adalah: Rp %.1f%n",
+                nama, jamKerja, totalGaji);
+        return totalGaji;
+    }
+
+    @Override
+    public void perpanjangKontrak(int durasiBulan) {
+        System.out.printf("Kontrak %s diperpanjang selama %d bulan.%n",
+                nama, durasiBulan);
+    }
+
+    @Override
+    public String getStatusCuti() {
+        return "Tersedia 5 hari";
+    }
+
+    @Override
+    public void login(String pin) {
+        if (pin.equals(pinRahasia)) {
+            sedangLogin = true;
+            System.out.printf("Login Berhasil. Selamat datang, %s!%n", nama);
+        } else {
+            System.out.println("Login Gagal: PIN salah.");
+        }
+    }
+
+    @Override
+    public void logout() {
+        sedangLogin = false;
+        System.out.printf("%s berhasil logout.%n", nama);
+    }
+
+    @Override
+    public String getRoleAkses() {
+        return "Magang IT";
+    }
+}

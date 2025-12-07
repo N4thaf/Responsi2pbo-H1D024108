@@ -6,3 +6,12 @@ Setelah menyelesaikan kode, jawab pertanyaan berikut:
 3. Mengapa subclass wajib mengimplementasikan semua abstract method dari parent class?
 4. Mengapa abstract method tidak boleh memiliki isi implementasi di dalam abstract class?
 5. Bagaimana abstract class dapat mendukung konsep polimorfisme, dan mengapa objek yang direferensikan melalui tipe abstract class tetap dapat menjalankan perilaku berbeda pada masing-masing subclass?
+
+jawab:
+
+
+1. Abstract class adalah class yang tidak dapat diinstansiasi secara langsung dan berfungsi sebagai template atau blueprint untuk subclass. Kita membutuhkan abstract class untuk mendefinisikan struktur dasar yang harus diikuti semua subclass, memaksa subclass mengimplementasikan method tertentu sesuai kebutuhan masing-masing, menghindari pembuatan objek dari class yang terlalu umum/abstrak, dan menyediakan kerangka kerja yang konsisten untuk berbagai tipe objek.
+2. Abstract class tidak bisa diinstansiasi (tidak bisa membuat objek langsung) sedangkan class biasa bisa. Abstract class dapat memiliki abstract method (tanpa implementasi), class biasa hanya memiliki method konkret. Abstract class digunakan sebagai template, class biasa digunakan untuk membuat objek. Abstract class harus di-extend oleh subclass, class biasa bisa langsung digunakan.
+3. Karena abstract method adalah kontrak/perjanjian yang harus dipenuhi oleh subclass. Jika subclass tidak mengimplementasikan semua abstract method, maka subclass tersebut juga harus dideklarasikan sebagai abstract class. Ini memastikan setiap subclass konkret memiliki implementasi lengkap dari semua perilaku yang didefinisikan di parent class.
+4. Karena abstract method dirancang untuk didefinisikan oleh subclass sesuai kebutuhan spesifik mereka. Setiap subclass memiliki cara kerja yang berbeda, sehingga implementasi diserahkan sepenuhnya kepada subclass. Abstract class hanya menentukan "apa" yang harus dilakukan, bukan "bagaimana" melakukannya.
+5. Abstract class mendukung polimorfisme dengan menyediakan tipe umum yang dapat menampung berbagai objek subclass. Meskipun variabel bertipe abstract class, objek yang sebenarnya adalah instance dari subclass konkret. Saat method dipanggil, Java menggunakan dynamic dispatch untuk menjalankan implementasi method dari class objek sebenarnya (bukan tipe variabel), sehingga setiap subclass menjalankan perilaku spesifiknya masing-masing.

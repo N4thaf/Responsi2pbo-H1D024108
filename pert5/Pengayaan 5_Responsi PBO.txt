@@ -5,3 +5,11 @@ Jawablah pertanyaan berikut:
 3. Apa perbedaan override dan overload?
 4. Apa keuntungan menggunakan polimorfisme dalam sistem inventaris seperti contoh di atas?
 5. Bagaimana cara kerja dynamic dispatch pada Java saat memanggil method override?
+
+Jawab:
+
+1. Polimorfisme adalah kemampuan objek untuk mengambil banyak bentuk. Satu variabel bertipe parent class dapat menampung objek dari berbagai subclass. Method override bekerja dengan cara subclass mendefinisikan ulang method yang sudah ada di parent class dengan implementasi yang berbeda. Ketika method dipanggil, Java akan menjalankan versi method sesuai tipe objek sebenarnya (bukan tipe variabel).
+2. Karena MesinMotor dan MesinTraktor adalah subclass dari DefaultMesin (hubungan IS-A). Dalam inheritance, subclass mewarisi sifat parent class, sehingga objek subclass dapat diperlakukan sebagai objek parent class. Ini disebut upcasting dan terjadi secara otomatis di Java.
+3. Override adalah mendefinisikan ulang method yang sudah ada di parent class dengan signature yang sama (nama, parameter, return type sama) di subclass. Terjadi antara parent dan child class. Overload adalah membuat beberapa method dengan nama sama tetapi parameter berbeda (jumlah atau tipe) dalam satu class yang sama. Return type boleh berbeda.
+4. Kode lebih fleksibel dan mudah dikembangkan karena bisa menambah tipe mesin baru tanpa mengubah kode yang sudah ada, memudahkan pengelolaan data dengan satu array untuk berbagai jenis mesin, mengurangi duplikasi kode karena operasi umum seperti loop cukup ditulis sekali, dan memudahkan maintenance dimana perubahan di satu tempat berlaku untuk semua tipe mesin.
+5. Dynamic dispatch adalah proses pemilihan method yang akan dijalankan saat runtime (bukan compile time). Ketika method dipanggil melalui referensi parent class, Java akan melihat tipe objek sebenarnya di memori dan menjalankan versi method dari class tersebut. Contoh: mesin[0].nilaiPerforma() akan memanggil nilaiPerforma() dari MesinMotor jika mesin[0] berisi objek MesinMotor, meskipun tipe variabel adalah DefaultMesin.

@@ -1,22 +1,14 @@
 class UjiKaryawan {
     public static void main(String[] args) {
-        // Tampilkan Header
         System.out.println("=== DATA KARYAWAN TECHMAJU ===");
 
-        // Buat objek Karyawan biasa (Budi)
-        
-        
-        // Tampilkan info Karyawan biasa
+        Karyawan budi = new Karyawan("Budi Santoso", 4000000.0);
         System.out.println("Status: Karyawan Biasa");
-        
-        
-        System.out.println(); // Baris baru/jarak
+        budi.tampilInfo();
+        System.out.println();
 
-        // Buat objek Manajer (Siti)
-        
-        
-        // Tampilkan info Manajer
+        Manajer siti = new Manajer("Siti Aminah", 6000000.0, 2500000.0);
         System.out.println("Status: Manajer");
-        
+        siti.tampilInfo();
     }
 }

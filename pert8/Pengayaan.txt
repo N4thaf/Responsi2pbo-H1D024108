@@ -6,3 +6,11 @@ Setelah anda menyelesaikan kode, tolong jawab pertanyaan dibawah ini ya =
 3. Apa perbedaan mendasar antara extends dan implements dalam konteks interface, jika dilihat secara konsep tanpa melihat contoh kode?
 4. Apa alasan diperkenalkannya default method dalam interface, dan bagaimana fitur ini memengaruhi keberlangsungan (compatibility) suatu sistem yang sudah berjalan?
 5. Bagaimana konsep multiple interface memperluas fleksibilitas desain tanpa menimbulkan masalah kompleksitas yang biasa muncul pada multiple inheritance?
+
+Jawab:
+
+1. Interface bertujuan untuk mendefinisikan method-method apa saja yang harus ada di sebuah class, tanpa peduli bagaimana cara kerjanya. Interface memaksa class yang mengimplementasinya untuk menyediakan semua method yang sudah dideklarasikan, sehingga semua class yang implementasi interface yang sama pasti punya method yang sama, meskipun cara kerjanya beda-beda.
+2. Interface bisa diimplementasi banyak class karena interface cuma nyebutin method apa yang harus ada, tanpa ngasih tau cara bikinnya. Artinya, satu konsep bisa diterapkan dengan banyak cara berbeda. Misalnya interface "Terbang" bisa diimplementasi pesawat, burung, atau drone dengan cara yang berbeda-beda, tapi semuanya punya method terbang().
+3. Extends itu mewarisi seluruh isi class parent (atribut dan method lengkap dengan implementasinya), jadi subclass langsung dapet semuanya. Implements itu cuma ngikutin daftar method yang harus dibuat dari interface, tapi harus bikin sendiri isi method-nya dari awal. Extends dapat warisan lengkap, implements dapat daftar tugas yang harus dikerjain sendiri.
+4. Default method ditambahkan supaya kalau ada penambahan method baru di interface, class-class lama yang udah implementasi interface tersebut gak error. Method default udah punya implementasi di interface, jadi class lama gak perlu diubah. Ini bikin sistem yang udah jalan tetap stabil meskipun ada update di interface.
+5. Multiple interface memungkinkan satu class punya banyak kemampuan dari berbagai interface sekaligus tanpa masalah. Karena interface cuma berisi deklarasi method tanpa atribut, gak ada bingung "ambil atribut dari mana" seperti di multiple inheritance. Class tinggal implementasi semua method dari semua interface yang dipake sesuai kebutuhan, jadi lebih fleksibel tanpa ribet.

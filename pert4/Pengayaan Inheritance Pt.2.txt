@@ -9,3 +9,10 @@
 4. Bagaimana keyword super membantu membedakan atribut yang memiliki nama sama antara parent dan child?
 
 5. Mengapa pendekatan inheritance lebih efisien dibanding menyalin ulang seluruh atribut dan method ke dalam class Member?
+
+Jawab:
+1. Karena subclass harus menginisialisasi atribut yang dimiliki parent class terlebih dahulu. Java mengharuskan constructor parent dipanggil sebelum constructor child dijalankan. Jika tidak dipanggil secara eksplisit, Java akan otomatis memanggil super() tanpa parameter, yang bisa error jika parent tidak memiliki constructor tanpa parameter.
+2. Untuk menggunakan kembali logika yang sudah ada di parent class tanpa menulis ulang kode yang sama. Ini mengikuti prinsip DRY (Don't Repeat Yourself) dan memastikan konsistensi output. Child class hanya perlu menambahkan informasi tambahan setelah menampilkan info dasar dari parent.
+3. Contoh: Class Animal memiliki method bersuara() yang menampilkan "Hewan bersuara". Class Kucing extends Animal dan override method bersuara(). Dengan memanggil super.bersuara() terlebih dahulu, output menjadi "Hewan bersuara" diikuti "Meong!", menunjukkan bahwa kucing adalah hewan yang bersuara dengan cara spesifik.
+4. Keyword super digunakan untuk mengakses atribut atau method dari parent class ketika child class memiliki atribut dengan nama yang sama. Contoh: jika parent dan child sama-sama punya atribut 'nama', maka super.nama mengacu ke atribut parent, sedangkan this.nama atau nama saja mengacu ke atribut child.
+5. Inheritance lebih efisien karena mengurangi duplikasi kode (code reusability), memudahkan maintenance dimana perubahan di parent otomatis berlaku untuk semua child, struktur kode lebih terorganisir dan mudah dipahami, menghemat memori karena tidak ada redundansi kode, dan memudahkan pengembangan fitur baru dengan membuat subclass tambahan tanpa mengubah kode yang sudah ada.
