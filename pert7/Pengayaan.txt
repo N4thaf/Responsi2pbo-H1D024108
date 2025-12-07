@@ -6,3 +6,16 @@ Setelah menyelesaikan kode, jawab pertanyaan berikut:
 3. Apa tujuan penggunaan keyword "implements" pada sebuah class?
 4. Apakah sebuah class dapat mengimplementasikan lebih dari satu interface? Jelaskan dan berikan contoh sederhana.
 5. Jika sebuah class mengimplementasikan interface, apa yang terjadi jika class tersebut tidak mengimplementasikan semua method dari interface tersebut?
+
+Jawab:
+1. Interface hanya berisi deklarasi method tanpa implementasi (method kosong), sedangkan class biasa berisi method dengan implementasi lengkap. Interface tidak bisa diinstansiasi (tidak bisa buat objek langsung), class biasa bisa. Interface tidak punya constructor dan atribut (kecuali konstanta), class biasa punya keduanya. Interface digunakan untuk mendefinisikan kemampuan apa yang harus ada, class untuk membuat objek nyata.
+2. Karena interface hanya berfungsi sebagai template atau daftar method yang harus ada, bukan untuk menentukan bagaimana method tersebut bekerja. Setiap class yang implementasi interface punya cara kerja yang berbeda-beda, jadi implementasinya diserahkan sepenuhnya ke class masing-masing. Interface cuma ngasih tau "apa yang harus ada", bukan "gimana cara kerjanya".
+3. Keyword "implements" digunakan untuk menyatakan bahwa sebuah class akan menerapkan semua method yang ada di interface. Dengan implements, class wajib membuat implementasi lengkap untuk semua method yang dideklarasikan di interface. Ini berbeda dengan extends yang mewarisi implementasi, implements hanya mewarisi daftar method yang harus dibuat.
+4. Ya, sebuah class bisa mengimplementasikan lebih dari satu interface. Contoh:
+interface Terbang { void terbang(); }
+interface Berenang { void berenang(); }
+class Bebek implements Terbang, Berenang {
+public void terbang() { System.out.println("Bebek terbang"); }
+public void berenang() { System.out.println("Bebek berenang"); }
+}
+5. Jika class tidak mengimplementasikan semua method dari interface, maka akan terjadi compile error dan program tidak bisa dijalankan. Solusinya ada dua: implementasikan semua method yang ada di interface, atau jadikan class tersebut sebagai abstract class sehingga tidak wajib implementasi semua method (tapi tidak bisa diinstansiasi).
